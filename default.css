@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
   font-size: 14px;
   font-family: sans-serif;
-  color: white;
+  background: linear-gradient(to bottom, #000000, #2b1055);
   overflow: auto;
 }
 a {
