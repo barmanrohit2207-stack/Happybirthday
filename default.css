@@ -1,12 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../img2.png');
+  background-image: url('img2.png');
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   font-size: 14px;
   font-family: sans-serif;
-  background: linear-gradient(to bottom, #000000, #2b1055);
+  color: white;
   overflow: auto;
 }
 a {
