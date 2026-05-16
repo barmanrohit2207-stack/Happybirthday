@@ -10,7 +10,7 @@ body {
   overflow: auto;
 }
 a {
-  color: white;
+  color: linear-gradient(to bottom, #000000, #2b1055);
   font-size: 14px;
 }
 #main {
