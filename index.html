@@ -29,156 +29,67 @@
         </audio>
         <div id="wrap">
             <div id="text">
-                <div id="code">
-                    <span class="say">My beautiful best friend 💞</span>
-                    <span class="say">Happy Birthday Shivangi 🎈</span>
-                    <span class="say">May God bless me 🤣🍀</span>
-                    <span class="say">And give u many happiness 💕</span>
-                    <span class="say">Hope u have a great day today ❤️😘</span>
-					.say{display:block;
-					   margin-bottom:8px;
-                        }
-                </div>
-            </div>
-            <div id="clock-box">
-                <span id="clock">17 years 204 months 6209 dayss </span> <!-- Change to "6940 days..." if needed -->
-            </div>
-            <canvas id="canvas" width="1100" height="680"></canvas>
-        </div>
+    <div id="code">
+
+        <span class="say">MY BEAUTIFUL BEST FRIEND 💞</span>
+
+        <span class="say">HAPPY BIRTHDAY SHIVANGI 🎈</span>
+
+        <span class="say">MAY GOD BLESS ME 🤣🍀</span>
+
+        <span class="say">AND GIVE U MANY HAPPINESS 💕</span>
+
+        <span class="say">HOPE U HAVE A GREAT DAY TODAY ❤️😘</span>
+
+    </div>
+</div>
+
+<div id="clock-box">
+
+    <div class="top-text">
+        THE WORLD JUST GOT LUCKIER SINCE YOU WERE BORN 🤍
     </div>
 
-    <script>
-    (function() {
-        var canvas = $('#canvas');
-		
-        if (!canvas[0].getContext) {
-            $("#error").show();
-            return false;
-        }
+    <div id="clock">
 
-        var width = canvas.width();
-        var height = canvas.height();        
-        canvas.attr("width", width);
-        canvas.attr("height", height);
+        <div class="time-row">
 
-        var opts = {
-            seed: {
-                x: width / 2 - 20,
-                color: "rgb(190, 26, 37)",
-                scale: 2
-            },
-            branch: [
-                [535, 680, 570, 250, 500, 200, 30, 100, [
-                    [540, 500, 455, 417, 340, 400, 13, 100, [
-                        [450, 435, 434, 430, 394, 395, 2, 40]
-                    ]],
-                    [550, 445, 600, 356, 680, 345, 12, 100, [
-                        [578, 400, 648, 409, 661, 426, 3, 80]
-                    ]],
-                    [539, 281, 537, 248, 534, 217, 3, 40],
-                    [546, 397, 413, 247, 328, 244, 9, 80, [
-                        [427, 286, 383, 253, 371, 205, 2, 40],
-                        [498, 345, 435, 315, 395, 330, 4, 60]
-                    ]],
-                    [546, 357, 608, 252, 678, 221, 6, 100, [
-                        [590, 293, 646, 277, 648, 271, 2, 80]
-                    ]]
-                ]] 
-            ],
-            bloom: {
-                num: 700,
-                width: 1080,
-                height: 650,
-            },
-            footer: {
-                width: 1200,
-                height: 5,
-                speed: 10,
-            }
-        }
+            <div class="time-box">
+                <div class="big-num">17</div>
+                <div class="small-text">YEARS</div>
+            </div>
 
-        var tree = new Tree(canvas[0], width, height, opts);
-        var seed = tree.seed;
-        var foot = tree.footer;
-        var hold = 1;
+            <div class="time-box">
+                <div class="big-num">204</div>
+                <div class="small-text">MONTHS</div>
+            </div>
 
-        canvas.click(function(e) {
-            playAudio();
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            if (seed.hover(x, y)) {
-                hold = 0; 
-                canvas.unbind("click");
-                canvas.unbind("mousemove");
-                canvas.removeClass('hand');
-            }
-        }).mousemove(function(e) {
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            canvas.toggleClass('hand', seed.hover(x, y));
-        });
+            <div class="time-box">
+                <div class="big-num">6209</div>
+                <div class="small-text">DAYS</div>
+            </div>
 
-        var seedAnimate = eval(Jscex.compile("async", function () {
-            seed.draw();
-            while (hold) {
-                $await(Jscex.Async.sleep(5));
-            }
-            while (seed.canScale()) {
-                seed.scale(0.95);
-                $await(Jscex.Async.sleep(5));
-            }
-            while (seed.canMove()) {
-                seed.move(0, 2);
-                foot.draw();
-                $await(Jscex.Async.sleep(5));
-            }
-        }));
+        </div>
 
-        var growAnimate = eval(Jscex.compile("async", function () {
-            do {
-                tree.grow();
-                $await(Jscex.Async.sleep(5));
-            } while (tree.canGrow());
-        }));
+        <div class="time-row">
 
-        var flowAnimate = eval(Jscex.compile("async", function () {
-            do {
-                tree.flower(2);
-                $await(Jscex.Async.sleep(10));
-            } while (tree.canFlower());
-        }));
+            <div class="time-box">
+                <div class="big-num small-num">149016</div>
+                <div class="small-text">HOURS</div>
+            </div>
 
-        var moveAnimate = eval(Jscex.compile("async", function () {
-            tree.snapshot("p1", 240, 0, 610, 680);
-            while (tree.move("p1", 500, 0)) {
-                foot.draw();
-                $await(Jscex.Async.sleep(10));
-            }
-            foot.draw();
-            tree.snapshot("p2", 500, 0, 610, 680);
+            <div class="time-box">
+                <div class="big-num small-num">8940960</div>
+                <div class="small-text">MINUTES</div>
+            </div>
 
-            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-            canvas.css("background", "#ffe");
-            $await(Jscex.Async.sleep(300));
-            canvas.css("background", "none");
-        }));
+            <div class="time-box">
+                <div class="big-num small-num">536457600</div>
+                <div class="small-text">SECONDS</div>
+            </div>
 
-        var textAnimate = eval(Jscex.compile("async", function () {
-            $("#code").show().typewriter();
-        }));
-	    
-        var runAsync = eval(Jscex.compile("async", function () {
-            $await(seedAnimate());
-            $await(growAnimate());
-            $await(flowAnimate());
-            $await(moveAnimate());
-            textAnimate().start();
-        }));
+        </div>
 
-        runAsync().start();
-    })();
-    </script>
-</body>
-</html>
+    </div>
+
+</div>
