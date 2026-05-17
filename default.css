@@ -38,11 +38,11 @@ a {
 }
 
 #code {
-  display: none;
+  display: block;   /* IMPORTANT */
   color: rgb(196, 255, 255);
   margin-top: 70px;
-  line-height: 15px;
-  font-size: 24px;
+  line-height: 45px;
+  font-size: 25px;
   font-weight: bolder;
 }
 
